@@ -34,11 +34,23 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const profileMenu = ref();
 
 const items = ref([
-  { label: 'Serviços', icon: 'pi pi-list' },
+  { 
+    label: 'Home', 
+    icon: 'pi pi-home', 
+    command: () => { router.push('/'); } // Volta para Welcome
+  },
+ { 
+    label: 'Serviços', 
+    icon: 'pi pi-list', 
+    command: () => { router.push('/servicos'); } // Vai para Serviços
+  },
   { label: 'Barbeiros', icon: 'pi pi-users' },
   { label: 'Agendar', icon: 'pi pi-calendar-plus' }
 ]);
