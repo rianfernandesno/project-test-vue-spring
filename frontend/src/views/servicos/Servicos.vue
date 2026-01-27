@@ -78,7 +78,7 @@ onMounted(() => {
 
 .header-section h1 {
   font-size: 2.5rem;
-  color: var(--primary-color); /* Usando a cor que você definiu no style.css */
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
