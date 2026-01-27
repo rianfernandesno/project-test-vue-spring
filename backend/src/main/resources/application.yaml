@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: asvum-api
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/asvum_db?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${usernameDB}
+    password: ${passwordDB}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+        dialect: org.hibernate.dialect.MySQLDialect # Substitua pela sua versão se necessário
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+  # Se você estiver usando Flyway, é bom garantir que ele esteja ativo
+  flyway:
+    enabled: true
+    baseline-on-migrate: true

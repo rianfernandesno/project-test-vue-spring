@@ -1,0 +1,61 @@
+# =================================================================
+# GLOBAL / SISTEMA OPERACIONAL
+# =================================================================
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.swp
+
+# =================================================================
+# IDEs E EDITORES (VS Code, IntelliJ, Eclipse)
+# =================================================================
+.vscode/
+.idea/
+*.iws
+*.iml
+*.ipr
+.classpath
+.project
+.settings/
+bin/
+.nb-gradle/
+
+# =================================================================
+# BACKEND (Spring Boot / Maven)
+# =================================================================
+backend/target/
+backend/*.jar
+backend/*.war
+backend/*.zip
+backend/*.tar.gz
+backend/help.md
+# Se você usa o wrapper do Maven e não quer versionar os binários dele:
+# backend/.mvn/wrapper/maven-wrapper.jar
+
+# =================================================================
+# FRONTEND (Vue / Vite / Node)
+# =================================================================
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+frontend/.eslintcache
+frontend/.stylelintcache
+
+# Logs do NPM/Yarn
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# =================================================================
+# SEGURANÇA E VARIÁVEIS DE AMBIENTE (Crucial!)
+# =================================================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
