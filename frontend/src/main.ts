@@ -8,6 +8,7 @@ import './style.css';
 import Menubar from 'primevue/menubar';
 import Button from 'primevue/button';
 import Menu from 'primevue/menu';
+import Dialog from 'primevue/dialog';
 
 const app = createApp(App);
 
@@ -20,6 +21,7 @@ app.use(PrimeVue, {
 app.component('Menubar', Menubar);
 app.component('Button', Button);
 app.component('Menu', Menu);
+app.component('Dialog', Dialog);
 
 app.use(router);
 app.mount('#app');

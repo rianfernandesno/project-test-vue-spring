@@ -7,7 +7,7 @@
           <span class="brand-name">ASVUM</span>
         </div>
       </template>
-      
+
       <template #item="{ item, props }">
         <a v-ripple class="menu-item" v-bind="props.action">
           <span :class="item.icon" class="menu-icon" />
@@ -17,13 +17,13 @@
 
       <template #end>
         <div class="user-actions">
-          <Button 
-            icon="pi pi-user" 
-            severity="primary" 
-            rounded 
-            outlined 
+          <Button
+            icon="pi pi-user"
+            severity="primary"
+            rounded
+            outlined
             class="profile-btn"
-            @click="toggleProfileMenu" 
+            @click="toggleProfileMenu"
           />
           <Menu ref="profileMenu" :model="profileItems" :popup="true" />
         </div>
@@ -33,32 +33,42 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 
 const profileMenu = ref();
 
 const items = ref([
-  { 
-    label: 'Home', 
-    icon: 'pi pi-home', 
-    command: () => { router.push('/'); } // Volta para Welcome
+  {
+    label: "Home",
+    icon: "pi pi-home",
+    command: () => {
+      router.push("/");
+    }, // Volta para Welcome
   },
- { 
-    label: 'Serviços', 
-    icon: 'pi pi-list', 
-    command: () => { router.push('/servicos'); } // Vai para Serviços
+  {
+    label: "Serviços",
+    icon: "pi pi-list",
+    command: () => {
+      router.push("/servicos");
+    }, // Vai para Serviços
   },
-  { label: 'Barbeiros', icon: 'pi pi-users' },
-  { label: 'Agendar', icon: 'pi pi-calendar-plus' }
+  {
+    label: "Barbeiros",
+    icon: "pi pi-users",
+    command: () => {
+      router.push("/barbeiros");
+    },
+  },
+  { label: "Agendar", icon: "pi pi-calendar-plus" },
 ]);
 
 const profileItems = ref([
-  { label: 'Meu Perfil', icon: 'pi pi-user' },
+  { label: "Meu Perfil", icon: "pi pi-user" },
   { separator: true },
-  { label: 'Sair', icon: 'pi pi-sign-out', class: 'logout-item' }
+  { label: "Sair", icon: "pi pi-sign-out", class: "logout-item" },
 ]);
 
 const toggleProfileMenu = (event: Event) => {
@@ -72,14 +82,14 @@ const toggleProfileMenu = (event: Event) => {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; 
+  z-index: 9999;
   padding: 1rem 2rem;
 }
 
 .custom-menubar {
-  background: rgba(10, 10, 10, 0.75) !important; 
+  background: rgba(10, 10, 10, 0.75) !important;
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(212, 175, 55, 0.2) !important; 
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
   border-radius: 100px;
 }
 
@@ -100,7 +110,7 @@ const toggleProfileMenu = (event: Event) => {
   font-weight: 900;
   letter-spacing: 2px;
   color: #fff;
-  font-family: 'serif'; /* Ou uma fonte que você importar */
+  font-family: "serif"; /* Ou uma fonte que você importar */
 }
 
 .menu-item {
