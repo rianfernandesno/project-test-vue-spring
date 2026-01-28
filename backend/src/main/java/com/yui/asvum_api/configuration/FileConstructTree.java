@@ -5,13 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import com.yui.asvum_api.models.dtos.BarbeiroOutput;
-import com.yui.asvum_api.services.BarbeiroService;
 
 @Component
 public class FileConstructTree  implements CommandLineRunner{
