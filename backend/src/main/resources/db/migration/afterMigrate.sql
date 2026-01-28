@@ -16,11 +16,11 @@ INSERT INTO servico (id, nome, descricao, preco, duracao, especialidade) VALUES
 
 -- 2. BARBEIROS (5 Barbeiros para teste)
 INSERT INTO barbeiro (id, nome, foto_path, esta_ativo) VALUES
-(1, 'Ariel o Brabo', 'barbeiros/ariel.jpg', 1),
-(2, 'Lucas do Corte', 'barbeiros/lucas.jpg', 1),
-(3, 'Juliana Silver', 'barbeiros/juliana.jpg', 1),
-(4, 'Marcos Navalha', 'barbeiros/marcos.jpg', 1),
-(5, 'Ricardo Inativo', 'barbeiros/ricardo.jpg', 0);
+(1, 'Ariel o Brabo', 'ariel.jpg', 1),
+(2, 'Lucas do Corte', 'lucas.jpg', 1),
+(3, 'Juliana Silver', 'juliana.png', 1),
+(4, 'Marcos Navalha', 'marcos.png', 1),
+(5, 'Ricardo Inativo', 'ricardo.jpg', 0);
 
 -- 3. ESPECIALIDADES (Relacionamento Many-to-Many/ElementCollection)
 INSERT INTO barbeiro_especialidades (barbeiro_id, especialidades) VALUES
