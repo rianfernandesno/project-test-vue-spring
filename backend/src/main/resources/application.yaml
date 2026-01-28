@@ -26,3 +26,7 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
+
+app:
+  upload:
+    dir: ${user.home}/system-asvum

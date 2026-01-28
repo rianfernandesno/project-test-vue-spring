@@ -1,8 +1,13 @@
 package com.yui.asvum_api.services;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +19,9 @@ import com.yui.asvum_api.repository.BarbeiroRepository;
 
 @Service
 public class BarbeiroService {
+
+     @Value("${app.upload.dir}")
+    private String baseUrl;
 
      @Autowired
     private BarbeiroRepository repository;
@@ -50,6 +58,8 @@ public class BarbeiroService {
 
         barbeiro = repository.save(barbeiro);
 
+        createDirectorie(barbeiro.getId());
+
         return mapper.toOutput(barbeiro);
     }
 
@@ -66,6 +76,16 @@ public class BarbeiroService {
     @Transactional
     public void delete(Long id){
         repository.deleteById(id);
+    }
+
+    private void createDirectorie(Long id){
+        Path path = Paths.get(baseUrl).resolve("barbeiros").resolve(String.valueOf(id)).resolve("imagens");
+        
+        try {
+            Files.createDirectories(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
