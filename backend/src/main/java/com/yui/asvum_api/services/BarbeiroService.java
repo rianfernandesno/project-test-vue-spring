@@ -71,6 +71,8 @@ public class BarbeiroService {
         Barbeiro barbeiroExistente = repository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Barbeiro não encontrado"));
 
+        barbeiroExistente.getHorariosTrabalho().clear();
+
         mapper.updateEntityFromDto(input, barbeiroExistente);
 
         if (file != null && !file.isEmpty()) {
