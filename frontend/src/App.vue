@@ -5,7 +5,7 @@ import AppHeader from './components/layout/AppHeader.vue';
 
 <template>
   <div id="app">
-    <AppHeader /> 
+    <AppHeader v-if="!$route.path.startsWith('/admin')" />
     <main>
       <RouterView /> 
     </main>
