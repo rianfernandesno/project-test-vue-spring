@@ -30,6 +30,7 @@ import Checkbox from 'primevue/checkbox';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Dropdown from 'primevue/dropdown';
+import InputNumber from 'primevue/inputnumber';
 
 const app = createApp(App);
 
@@ -68,5 +69,6 @@ app.component('Checkbox', Checkbox);
 app.component('DataTable', DataTable);
 app.component('Column', Column);
 app.component('Dropdown', Dropdown);
+app.component('InputNumber', InputNumber); 
 
 app.mount('#app');
