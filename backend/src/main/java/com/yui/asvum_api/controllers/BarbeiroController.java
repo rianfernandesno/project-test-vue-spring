@@ -31,14 +31,14 @@ public class BarbeiroController {
     private BarbeiroService service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    private ResponseEntity<List<BarbeiroOutput>> findAll(){
+    public ResponseEntity<List<BarbeiroOutput>> findAll(){
         List<BarbeiroOutput> listBarbeiro = service.findAll();
 
         return ResponseEntity.ok().body(listBarbeiro);
     }
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    private ResponseEntity<BarbeiroOutput> create( @RequestPart("input") @Valid BarbeiroInput input, @RequestPart("file") MultipartFile file){
+    public ResponseEntity<BarbeiroOutput> create( @RequestPart("input") @Valid BarbeiroInput input, @RequestPart(value = "file", required = false) MultipartFile file){
 
         BarbeiroOutput output = service.create(input, file);
 
@@ -46,8 +46,8 @@ public class BarbeiroController {
         return ResponseEntity.created(uri).body(output);
     }
 
-    @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    private ResponseEntity<BarbeiroOutput> update(@RequestPart("id") Long id, @RequestPart("input") @Valid BarbeiroInput input, @RequestPart("file") MultipartFile file){
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<BarbeiroOutput> update(@PathVariable Long id, @RequestPart("input") @Valid BarbeiroInput input, @RequestPart( value ="file", required = false) MultipartFile file){
        BarbeiroOutput output = service.update(id, input, file); 
 
 
@@ -55,7 +55,7 @@ public class BarbeiroController {
     }
 
     @DeleteMapping("/{id}")
-    private ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id){
         service.delete(id);
 
         return ResponseEntity.noContent().build();

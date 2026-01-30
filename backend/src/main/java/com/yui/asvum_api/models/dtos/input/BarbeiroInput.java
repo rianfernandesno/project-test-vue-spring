@@ -10,7 +10,6 @@ import jakarta.validation.constraints.NotEmpty;
 
 public record BarbeiroInput(
         @NotBlank String nome,
-        String fotoPath,
         @NotEmpty Set<Especialidade> especialidades,
         List<HorarioTrabalhoInput> horariosTrabalho,
         Boolean estaAtivo

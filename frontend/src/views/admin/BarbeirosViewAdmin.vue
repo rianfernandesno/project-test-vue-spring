@@ -169,11 +169,10 @@ const saveBarbeiro = async () => {
       fotoPath: barbeiro.value.fotoPath || ''
     };
 
-    // Se não selecionou foto nova na edição, enviamos um arquivo vazio conforme a regra do service
-    const fileToSend = selectedFile.value || new File([""], "blob", { type: "image/jpeg" });
+    const fileToSend = selectedFile.value
 
     if (barbeiro.value.id) {
-      await barbeiroService.updateBarbeiro(barbeiro.value.id, input, fileToSend);
+      await barbeiroService.updateBarbeiro(barbeiro.value.id, input, fileToSend || undefined);
       toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Atualizado com sucesso', life: 3000 });
     } else {
       await barbeiroService.createBarbeiro(input, fileToSend);
