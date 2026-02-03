@@ -25,6 +25,10 @@ public class Barbeiro {
     @OneToMany(mappedBy = "barbeiro", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HorarioTrabalho> horariosTrabalho;
 
+    @OneToOne
+    @JoinColumn(name = "usuario_id", unique = true)
+    private Usuario usuario;
+
     private Boolean estaAtivo;
 
     public Barbeiro() {
